@@ -273,6 +273,7 @@ input, select, textarea {
 
 		hr.major {
 			margin: 5rem 0;
+			text-align: left;
 		}
 
 	.align-left {
@@ -288,11 +289,11 @@ input, select, textarea {
 	}
 
 	input, select, textarea {
-		color: #312621;
+		color: #ffffff;
 	}
 
 	a {
-		color: #22e422;
+		color: #2b3056;
 		border-bottom-color: rgb(255, 255, 255);
 	}
 
@@ -302,7 +303,7 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #7028c2;
+		color: #ffffff;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2946,7 +2947,7 @@ input, select, textarea {
 
 		header.major {
 			margin: 0 0 4rem 0;
-			text-align: center;
+			text-align: left;
 		}
 
 			header.major > :last-child {
@@ -2955,12 +2956,13 @@ input, select, textarea {
 
 			header.major > p {
 				margin-top: 0;
-				text-align: center;
+				text-align: justify;
 			}
 
 			header.major > .date {
 				font-size: 1.5rem;
 				margin: 0 0 4rem 0;
+				text-align: center;
 			}
 
 				header.major > .date:before, header.major > .date:after {
