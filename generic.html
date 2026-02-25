@@ -54,6 +54,46 @@
                         <h1>Signatory List</h1>
                     </header>
 
+                    <script>
+                        let signatory_count = null;
+
+                        async function loadCell() {
+                            // Replace with your ID and sheet name
+                            const spreadsheetId =
+                                "2PACX-1vQQ7DtZAJxhI2JBEXr4csPR9D17BpIUxya8fjvctlaLdXFEDgltkC7o1np861VdGt5_KAS_DulYkzlX";
+                            const sheetName = "Count";
+
+                            const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vQQ7DtZAJxhI2JBEXr4csPR9D17BpIUxya8fjvctlaLdXFEDgltkC7o1np861VdGt5_KAS_DulYkzlX/pub?gid=1830215666&single=true&output=csv`;
+
+                            try {
+                                const res = await fetch(url);
+                                const text = await res.text();
+
+                                // Simple parse: split into rows, then columns
+                                const rows = text.trim().split("\n");
+                                const firstRow = rows[0].split(",");
+                                const cellA1 = firstRow[0];
+
+                                signatory_count = Number(cellA1) || 0;
+
+                                document.getElementById(
+                                    "signatory_count",
+                                ).textContent = signatory_count;
+                                startCounterAnimation(signatory_count);
+                            } catch (e) {
+                                console.error(e);
+                                document.getElementById(
+                                    "signatory_count",
+                                ).textContent = "Error";
+                                document.getElementById(
+                                    "ledCount",
+                                ).textContent = "Error";
+                            }
+                        }
+
+                        window.addEventListener("DOMContentLoaded", loadCell);
+                    </script>
+
                     <h2>
                         Total Number of Signatories (UK Students):
                         <span id="signatory_count">Loading...</span>
