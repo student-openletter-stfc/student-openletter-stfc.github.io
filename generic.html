@@ -79,14 +79,10 @@
                                 document.getElementById(
                                     "signatory_count",
                                 ).textContent = signatory_count;
-                                startCounterAnimation(signatory_count);
                             } catch (e) {
                                 console.error(e);
                                 document.getElementById(
                                     "signatory_count",
-                                ).textContent = "Error";
-                                document.getElementById(
-                                    "ledCount",
                                 ).textContent = "Error";
                             }
                         }
