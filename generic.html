@@ -56,8 +56,30 @@
                     <h2>Total Number of Signatories (UK Students): 0</h2>
 
                     <iframe
+                        style="width: 100%"
+                        id="Iframe"
                         src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQQ7DtZAJxhI2JBEXr4csPR9D17BpIUxya8fjvctlaLdXFEDgltkC7o1np861VdGt5_KAS_DulYkzlX/pubhtml?gid=491933844&amp;single=true&amp;widget=false&amp;headers=true"
                     ></iframe>
+
+                    <script>
+                        // Selecting the iframe element
+                        var frame = document.getElementById("Iframe");
+
+                        // Adjusting the iframe height onload event
+                        frame.onload = function () {
+                            // set the height of the iframe as
+                            // the height of the iframe content
+                            frame.style.height =
+                                frame.contentWindow.document.body.scrollHeight +
+                                "px";
+
+                            // set the width of the iframe as the
+                            // width of the iframe content
+                            frame.style.width =
+                                frame.contentWindow.document.body.scrollWidth +
+                                "px";
+                        };
+                    </script>
 
                     <h2>Other Signatories</h2>
                 </section>
