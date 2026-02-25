@@ -105,10 +105,67 @@
                             />
                             <div class="led-counter">
                                 Signature Count: TBA
-                                <!--<span id="ledCount">000</span>-->
+                                <span id="ledCount">000</span>
                             </div>
+                            <!--<script>
+                                    const apiKey = 'YOUR_API_KEY';
+                                    const spreadsheetId = 'YOUR_SPREADSHEET_ID';
+                                    const range = 'Sheet1!A1:B2';
+
+                                    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+                                    fetch(url)
+                                      .then(response => response.json())
+                                      .then(data => {
+                                            const values = data.values;
+                                            const sheetDataDiv = document.getElementById('sheet-data');
+                                            values.forEach(row => {
+                                                const rowElement = document.createElement('p');
+                                                rowElement.textContent = row.join(', ');
+                                                sheetDataDiv.appendChild(rowElement);
+                                            });
+                                        })
+                                      .catch(error => console.error('Error fetching data:', error));
+                                </script>-->
                             <script>
-                                const target = 007; // TODO
+                                async function loadCell() {
+                                    // Replace with your ID and sheet name
+                                    const spreadsheetId =
+                                        "2PACX-1vQQ7DtZAJxhI2JBEXr4csPR9D17BpIUxya8fjvctlaLdXFEDgltkC7o1np861VdGt5_KAS_DulYkzlX";
+                                    const sheetName = "Count";
+
+                                    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+
+                                    try {
+                                        const res = await fetch(url);
+                                        const text = await res.text();
+
+                                        // Simple parse: split into rows, then columns
+                                        const rows = text.trim().split("\n");
+                                        const firstRow = rows[0].split(",");
+                                        const cellA1 = firstRow[0];
+
+                                        let signatory_count = null;
+                                        signatory_count = cellA1;
+
+                                        document.getElementById(
+                                            "signatory_count",
+                                        ).textContent = cellA1;
+                                    } catch (e) {
+                                        console.error(e);
+                                        document.getElementById(
+                                            "signatory_count",
+                                        ).textContent = "Error loading data";
+                                    }
+                                }
+
+                                window.addEventListener(
+                                    "DOMContentLoaded",
+                                    loadCell,
+                                );
+                            </script>
+                            <script>
+                                const target = signatory_count; // TODO
                                 const el = document.getElementById("ledCount");
                                 const start = performance.now();
                                 const duration = 1200;
