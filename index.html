@@ -103,10 +103,7 @@
                                 href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap"
                                 rel="stylesheet"
                             />
-                            <div class="led-counter">
-                                Signature Count:
-                                <span id="ledCount">000</span>
-                            </div>
+
                             <!--<script>
                                     const apiKey = 'YOUR_API_KEY';
                                     const spreadsheetId = 'YOUR_SPREADSHEET_ID';
@@ -128,6 +125,8 @@
                                       .catch(error => console.error('Error fetching data:', error));
                                 </script>-->
                             <script>
+                                let signatory_count = null;
+
                                 async function loadCell() {
                                     // Replace with your ID and sheet name
                                     const spreadsheetId =
@@ -145,8 +144,7 @@
                                         const firstRow = rows[0].split(",");
                                         const cellA1 = firstRow[0];
 
-                                        let signatory_count = null;
-                                        signatory_count = cellA1;
+                                        signatory_count = Number(cellA1) || 0;
 
                                         document.getElementById(
                                             "signatory_count",
@@ -164,6 +162,17 @@
                                     loadCell,
                                 );
                             </script>
+
+                            <div class="led-counter">
+                                Signature Count:
+                                <span id="ledCount"
+                                    ><span id="signatory_count"
+                                        >Loading...</span
+                                    >
+                                    000</span
+                                >
+                            </div>
+
                             <script>
                                 const target = signatory_count; // TODO
                                 const el = document.getElementById("ledCount");
