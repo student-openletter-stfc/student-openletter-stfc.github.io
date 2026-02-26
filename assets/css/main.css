@@ -2462,6 +2462,13 @@ label {
     margin: 0 0 0.75rem 0;
 }
 
+.label-helper {
+    font-weight: normal;
+    text-transform: none;
+    font-size: 0.8em; /* smaller text */
+    margin-left: 0.25em; /* small gap from "Degree" */
+}
+
 label_description {
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     font-weight: 500;
