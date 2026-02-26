@@ -2462,6 +2462,15 @@ label {
     margin: 0 0 0.75rem 0;
 }
 
+label_description {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+    font-size: 1.4rem;
+    text-transform: lowercase;
+}
+
 @media screen and (max-width: 980px) {
     label {
         font-size: 0.9rem;
